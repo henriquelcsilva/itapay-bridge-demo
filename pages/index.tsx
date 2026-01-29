@@ -264,6 +264,37 @@ export default function Home() {
                 <p className="text-sm text-gray-700"><strong>Email:</strong> {customerData.email}</p>
                 <p className="text-sm text-gray-700"><strong>KYC Status:</strong> {customerData.kyc_status}</p>
               </div>
+              
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  ⚠️ Ação Necessária
+                </h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Para continuar, você precisa completar seu cadastro e aceitar os termos de serviço da Bridge.
+                </p>
+                <div className="space-y-2">
+                  <a
+                    href={customerData.tos_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition text-center"
+                  >
+                    1. Aceitar Termos de Serviço →
+                  </a>
+                  <a
+                    href={customerData.kyc_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-green-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-700 transition text-center"
+                  >
+                    2. Completar Cadastro (KYC) →
+                  </a>
+                </div>
+                <p className="text-xs text-gray-500 mt-4 text-center">
+                  Após completar, volte aqui e continue para o próximo passo
+                </p>
+              </div>
+
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Passo 2: Criar USDC Wallet
               </h3>
@@ -274,6 +305,9 @@ export default function Home() {
               >
                 {loading ? 'Criando...' : 'Criar Wallet Solana/USDC'}
               </button>
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                ⚠️ Wallet só será criada se o KYC estiver aprovado
+              </p>
             </div>
           )}
 
